@@ -1,2 +1,9 @@
+# 杂项
 .obsidian/
 .DB_STORE
+
+# 可执行文件
+chatbox
+
+# 数据库文件
+data.db
