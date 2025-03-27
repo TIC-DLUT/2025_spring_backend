@@ -4,7 +4,10 @@ import (
 	"chatbox/config"
 	"chatbox/database"
 	"chatbox/servicecontext"
+	"chatbox/tool"
 	"flag"
+	"os"
+	"path/filepath"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -20,6 +23,10 @@ func init() {
 }
 
 func main() {
+	// 创建存储目录
+	rootPath, _ := os.Getwd()
+	tool.CreateDir(filepath.Join(rootPath, "data", "record"))
+
 	config := config.Load(etc)
 	database.Open("sqlite", "data.db")
 	scvx := servicecontext.NewServiceContext(config)

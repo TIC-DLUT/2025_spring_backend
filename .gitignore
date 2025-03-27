@@ -7,3 +7,6 @@ chatbox
 
 # 数据库文件
 data.db
+
+# 存储文件夹
+data/
