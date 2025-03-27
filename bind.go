@@ -2,6 +2,7 @@ package main
 
 import (
 	"chatbox/middleware"
+	"chatbox/route/ai"
 	"chatbox/route/record"
 	"chatbox/route/user"
 	"chatbox/servicecontext"
@@ -20,5 +21,8 @@ func BindRoute(scvx *servicecontext.ServiceContext, server *gin.Engine) {
 	serverrecordgroup.POST("/add", record.NewAddRoute(scvx))
 	serverrecordgroup.GET("/get", record.NewGetRoute(scvx))
 	serverrecordgroup.POST("/delete", record.NewDeleteRoute(scvx))
+
+	serveraigroup := server.Group("/ai", middleware.UserAccessMiddleware(scvx))
+	serveraigroup.GET("/run", ai.NewRunRoute(scvx))
 
 }

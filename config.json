@@ -1,5 +1,7 @@
 {
 	"host" : "localhost",
 	"port" : 8080,
-	"JWTPassword": "lovefromtic"
+	"JWTPassword" : "lovefromtic",
+	"BasePath" : "https://api.moonshot.cn/v1",
+	"Model": "moonshot-v1-8k"
 }

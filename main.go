@@ -28,6 +28,12 @@ func main() {
 	tool.CreateDir(filepath.Join(rootPath, "data", "record"))
 
 	config := config.Load(etc)
+	// 我们用的是kimi的模型，该apikey可以去平台申请
+	// https://platform.moonshot.cn/console
+	// 当然你也可以使用你自己想用的模型，只要符合openai的api范式
+	// 即可直接替换到本应用中
+	config.ApiKey = os.Getenv("APIKEY")
+
 	database.Open("sqlite", "data.db")
 	scvx := servicecontext.NewServiceContext(config)
 	server := gin.New()
