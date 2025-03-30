@@ -1,6 +1,6 @@
 # 杂项
 .obsidian/
-.DB_STORE
+.DS_Store
 
 # 可执行文件
 chatbox

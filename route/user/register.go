@@ -35,6 +35,10 @@ func NewRegisterRoute(sctx *servicecontext.ServiceContext) gin.HandlerFunc {
 }
 func Register(sctx *servicecontext.ServiceContext, req *RegisterReq) (resp *RegisterResp, e error) {
 
+	// 此处可以做对telephone的校验：
+	// 比如是否为手机号的正确格式
+	// 增加验证码逻辑防止恶意注册
+
 	// 尝试创建一个新用户
 	// Password设为tool.GenerateMD5(req.Password)的原因是防止数据库泄漏
 	e = sctx.UserModel.Create(&database.UserModel{

@@ -1,1 +1,250 @@
-{"name":"chatbox","bg_version":"v0.1.2","author":"dinglz","types":[{"name":"BaseResp","fields":[{"name":"code","type":"int","optional":false,"omitempty":false},{"name":"message","type":"string","optional":false,"omitempty":false}]}],"middlewares":["UserAccessMiddleware"],"methods":[{"children":[{"method":"POST","path":"/register","req":[{"name":"telephone","omitempty":false,"optional":false,"type":"string"},{"name":"password","omitempty":false,"optional":false,"type":"string"}],"resp":[{"name":"_","omitempty":false,"optional":false,"type":"BaseResp"}],"type":"method"},{"method":"POST","path":"/login","req":[{"name":"telephone","omitempty":false,"optional":false,"type":"string"},{"name":"password","omitempty":false,"optional":false,"type":"string"}],"resp":[{"name":"_","omitempty":false,"optional":false,"type":"BaseResp"},{"name":"token","omitempty":false,"optional":false,"type":"string"}],"type":"method"},{"method":"POST","path":"/check","req":[{"name":"token","omitempty":false,"optional":false,"type":"string"}],"resp":[{"name":"_","omitempty":false,"optional":false,"type":"BaseResp"},{"name":"ok","omitempty":false,"optional":false,"type":"bool"}],"type":"method"}],"middlewares":[],"name":"user","path":"/user","type":"group"},{"children":[{"method":"POST","path":"/add","req":[{"name":"question","omitempty":false,"optional":false,"type":"string"}],"resp":[{"name":"_","omitempty":false,"optional":false,"type":"BaseResp"}],"type":"method"},{"type":"method","path":"/get","method":"GET","req":[],"resp":[{"name":"_","type":"BaseResp","optional":false,"omitempty":false},{"name":"data","type":"[]string","optional":false,"omitempty":false}]},{"type":"method","path":"/delete","method":"POST","req":[],"resp":[{"name":"_","type":"BaseResp","optional":false,"omitempty":false}]}],"middlewares":["UserAccessMiddleware"],"name":"record","path":"/record","type":"group"},{"type":"group","name":"ai","path":"/ai","children":[{"type":"method","path":"/run","method":"GET","req":[{"name":"question","type":"string","optional":false,"omitempty":false}],"resp":[]}],"middlewares":["UserAccessMiddleware"]}],"configs":[{"name":"JWTPassword","type":"string"},{"name":"BasePath","type":"string"},{"name":"ApiKey","type":"string"},{"name":"Model","type":"string"}],"database":[{"name":"user","fields":[{"name":"telephone","type":"string","optional":false,"omitempty":false},{"name":"password","type":"string","optional":false,"omitempty":false}]}]}
+{
+    "name": "chatbox",
+    "bg_version": "v0.1.2",
+    "author": "dinglz",
+    "types": [
+        {
+            "name": "BaseResp",
+            "fields": [
+                {
+                    "name": "code",
+                    "type": "int",
+                    "optional": false,
+                    "omitempty": false
+                },
+                {
+                    "name": "message",
+                    "type": "string",
+                    "optional": false,
+                    "omitempty": false
+                }
+            ]
+        }
+    ],
+    "middlewares": [
+        "UserAccessMiddleware"
+    ],
+    "methods": [
+        {
+            "children": [
+                {
+                    "method": "POST",
+                    "path": "/register",
+                    "req": [
+                        {
+                            "name": "telephone",
+                            "omitempty": false,
+                            "optional": false,
+                            "type": "string"
+                        },
+                        {
+                            "name": "password",
+                            "omitempty": false,
+                            "optional": false,
+                            "type": "string"
+                        }
+                    ],
+                    "resp": [
+                        {
+                            "name": "_",
+                            "omitempty": false,
+                            "optional": false,
+                            "type": "BaseResp"
+                        }
+                    ],
+                    "type": "method"
+                },
+                {
+                    "method": "POST",
+                    "path": "/login",
+                    "req": [
+                        {
+                            "name": "telephone",
+                            "omitempty": false,
+                            "optional": false,
+                            "type": "string"
+                        },
+                        {
+                            "name": "password",
+                            "omitempty": false,
+                            "optional": false,
+                            "type": "string"
+                        }
+                    ],
+                    "resp": [
+                        {
+                            "name": "_",
+                            "omitempty": false,
+                            "optional": false,
+                            "type": "BaseResp"
+                        },
+                        {
+                            "name": "token",
+                            "omitempty": false,
+                            "optional": false,
+                            "type": "string"
+                        }
+                    ],
+                    "type": "method"
+                },
+                {
+                    "method": "POST",
+                    "path": "/check",
+                    "req": [
+                        {
+                            "name": "token",
+                            "omitempty": false,
+                            "optional": false,
+                            "type": "string"
+                        }
+                    ],
+                    "resp": [
+                        {
+                            "name": "_",
+                            "omitempty": false,
+                            "optional": false,
+                            "type": "BaseResp"
+                        },
+                        {
+                            "name": "ok",
+                            "omitempty": false,
+                            "optional": false,
+                            "type": "bool"
+                        }
+                    ],
+                    "type": "method"
+                }
+            ],
+            "middlewares": [],
+            "name": "user",
+            "path": "/user",
+            "type": "group"
+        },
+        {
+            "children": [
+                {
+                    "method": "POST",
+                    "path": "/add",
+                    "req": [
+                        {
+                            "name": "question",
+                            "omitempty": false,
+                            "optional": false,
+                            "type": "string"
+                        }
+                    ],
+                    "resp": [
+                        {
+                            "name": "_",
+                            "omitempty": false,
+                            "optional": false,
+                            "type": "BaseResp"
+                        }
+                    ],
+                    "type": "method"
+                },
+                {
+                    "type": "method",
+                    "path": "/get",
+                    "method": "GET",
+                    "req": [],
+                    "resp": [
+                        {
+                            "name": "_",
+                            "type": "BaseResp",
+                            "optional": false,
+                            "omitempty": false
+                        },
+                        {
+                            "name": "data",
+                            "type": "[]string",
+                            "optional": false,
+                            "omitempty": false
+                        }
+                    ]
+                },
+                {
+                    "type": "method",
+                    "path": "/delete",
+                    "method": "POST",
+                    "req": [],
+                    "resp": [
+                        {
+                            "name": "_",
+                            "type": "BaseResp",
+                            "optional": false,
+                            "omitempty": false
+                        }
+                    ]
+                }
+            ],
+            "middlewares": [
+                "UserAccessMiddleware"
+            ],
+            "name": "record",
+            "path": "/record",
+            "type": "group"
+        },
+        {
+            "type": "group",
+            "name": "ai",
+            "path": "/ai",
+            "children": [
+                {
+                    "type": "method",
+                    "path": "/run",
+                    "method": "GET",
+                    "req": [
+                        {
+                            "name": "question",
+                            "type": "string",
+                            "optional": false,
+                            "omitempty": false
+                        }
+                    ],
+                    "resp": []
+                }
+            ],
+            "middlewares": [
+                "UserAccessMiddleware"
+            ]
+        }
+    ],
+    "configs": [
+        {
+            "name": "JWTPassword",
+            "type": "string"
+        },
+        {
+            "name": "BasePath",
+            "type": "string"
+        },
+        {
+            "name": "ApiKey",
+            "type": "string"
+        },
+        {
+            "name": "Model",
+            "type": "string"
+        }
+    ],
+    "database": [
+        {
+            "name": "user",
+            "fields": [
+                {
+                    "name": "telephone",
+                    "type": "string",
+                    "optional": false,
+                    "omitempty": false
+                },
+                {
+                    "name": "password",
+                    "type": "string",
+                    "optional": false,
+                    "omitempty": false
+                }
+            ]
+        }
+    ]
+}

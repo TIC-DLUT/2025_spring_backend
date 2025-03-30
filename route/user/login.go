@@ -38,15 +38,11 @@ func Login(sctx *servicecontext.ServiceContext, req *LoginReq) (resp *LoginResp,
 	// JWT详细介绍：
 	// https://dinglz.cn/p/jwt%E7%9A%84%E5%BA%94%E7%94%A8/
 
-	// 此处可以做对telephone的校验：
-	// 比如是否为手机号的正确格式
-	// 增加验证码逻辑防止恶意注册
-
 	// 取到telephone对应的用户信息
 	res, e := sctx.UserModel.GetByTelephone(req.Telephone)
 	if e != nil {
-		// 可能是与数据库链接断开、或者已经有这个telephone等等
-		// 精细点可以对telephone存在做一个特判，然后不返回错误，Message置为该telephone已存在
+		// 可能是与数据库链接断开、或者这个telephone不存在等等
+		// 精细点可以对telephone存在做一个特判，然后不返回错误，Message置为该telephone不存在
 		return
 	}
 	resp = &LoginResp{
