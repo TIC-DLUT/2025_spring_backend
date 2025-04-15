@@ -50,6 +50,7 @@ func NewRunRoute(sctx *servicecontext.ServiceContext) gin.HandlerFunc {
 			messageJSON, _ := json.Marshal(message)
 			// 传输一次
 			ctx.SSEvent("message", string(messageJSON))
+			ctx.Writer.Flush()
 		})
 		if e != nil {
 			ctx.SSEvent("message", e.Error())
